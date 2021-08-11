@@ -27,11 +27,11 @@ add_filter( 'woocommerce_currencies', 'paymentnepal_usd_currency', 10, 1 );
   ------------------------------------------------------------ */
 add_action('plugins_loaded', 'woocommerce_paymentnepal', 0);
 function woocommerce_paymentnepal(){
-	if (!class_exists('WC_Payment_Gateway'))
+	if (!class_exists('WC_Payment_Gateways'))
 		return; // if the WC payment gateway class is not available, do nothing
 	if(class_exists('WC_PAYMENTNEPAL'))
 		return;
-class WC_PAYMENTNEPAL extends WC_Payment_Gateway{
+class WC_PAYMENTNEPAL extends WC_Payment_Gateways{
 	public function __construct(){
 		
 		$plugin_dir = plugin_dir_url(__FILE__);
